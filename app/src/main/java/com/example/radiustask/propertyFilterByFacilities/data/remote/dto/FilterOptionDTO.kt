@@ -1,4 +1,4 @@
-package com.example.radiustask.propertyFilterByFacilities.data.remote
+package com.example.radiustask.propertyFilterByFacilities.data.remote.dto
 
 import com.squareup.moshi.Json
 
