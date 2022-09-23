@@ -2,8 +2,8 @@ package com.example.radiustask.propertyFilterByFacilities.data.remote.dto
 
 import com.squareup.moshi.Json
 
-data class FilterDTO(
+data class FacilityOptionDTO(
     @field:Json(name = "name") val name: String?,
-    @field:Json(name = "facility_id") val facilityId: Int?,
-    @field:Json(name = "options") val options: List<FilterOptionDTO>?
+    @field:Json(name = "icon") val icon: String?,
+    @field:Json(name = "id") val id: Int?
 )

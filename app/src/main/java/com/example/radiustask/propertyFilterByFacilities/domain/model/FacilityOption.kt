@@ -1,4 +1,4 @@
 package com.example.radiustask.propertyFilterByFacilities.domain.model
 
-class FilterList {
+class FacilityOption {
 }

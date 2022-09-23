@@ -1,6 +1,6 @@
 package com.example.radiustask.propertyFilterByFacilities.domain.repository
 
-interface PropertyFilterRepo {
+interface PropertyFacilityRepo {
 
     suspend fun getFilterList()
 }

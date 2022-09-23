@@ -15,7 +15,7 @@
             android:theme="@style/Theme.RadiusTask"
             tools:targetApi="31">
         <activity
-                android:name=".propertyFilterByFacilities.presentation.propertyFilter.PropertyFilterActivity"
+                android:name=".propertyFilterByFacilities.presentation.propertyFilter.PropertyFacilityActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
