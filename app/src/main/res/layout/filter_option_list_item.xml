@@ -25,7 +25,7 @@
 
             <ImageView android:layout_width="40dp"
                        android:layout_gravity="center"
-                       style="@{facilityOptionState.selectionStyle}"
+                       style="@style/Theme.FilterOptionSelected"
                        android:layout_height="40dp"
                        tools:src="@drawable/no_room"
                        android:src="@{ContextCompat.getDrawable(context, facilityOptionState.icon)}"
@@ -35,7 +35,7 @@
             <TextView
                     tools:text="Tital"
                     android:text="@{facilityOptionState.name}"
-                    style="@{facilityOptionState.selectionStyle}"
+                    style="@style/Theme.FilterOptionSelected"
                     android:layout_width="match_parent"
                     android:gravity="center"
                     android:layout_height="wrap_content"

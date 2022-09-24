@@ -3,4 +3,4 @@ package com.example.radiustask.propertyFilterByFacilities.data.DataStorePreferen
 import javax.inject.Singleton
 
 @Singleton
-object RadiusDataStorePreference
+object RadiusDataStorePreference{}

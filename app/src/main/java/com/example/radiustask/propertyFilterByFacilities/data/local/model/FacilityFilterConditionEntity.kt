@@ -2,6 +2,8 @@ package com.example.radiustask.propertyFilterByFacilities.data.local.model
 
 import io.realm.RealmObject
 
-data class FacilityFilterConditionEntity(
+open class FacilityFilterConditionEntity(
     var facilityId: Int, var optionsId: Int
-) : RealmObject()
+) : RealmObject() {
+    constructor() : this(0, 0)
+}

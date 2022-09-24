@@ -11,6 +11,6 @@ data class FacilityOptionState(
     var id: Int,
     var name: String = "Boat",
     var icon: Int = R.drawable.boat,
-    var selectionState: FacilityOptionSelectionState = FacilityOptionSelectionState.Unselected(),
+//    var selectionState: FacilityOptionSelectionState = FacilityOptionSelectionState.Unselected(),
     var selectionStyle: Int = R.style.Theme_FilterOptionUnSelected
 ) : Parcelable

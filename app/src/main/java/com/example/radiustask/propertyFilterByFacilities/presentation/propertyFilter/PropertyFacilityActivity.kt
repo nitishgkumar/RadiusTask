@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.radiustask.R
 import com.example.radiustask.databinding.ActivityMainBinding
 import com.example.radiustask.propertyFilterByFacilities.presentation.adapter.PropertyFilterListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PropertyFacilityActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var viewModel: PropertyFacilityViewModel = hiltViewModel()

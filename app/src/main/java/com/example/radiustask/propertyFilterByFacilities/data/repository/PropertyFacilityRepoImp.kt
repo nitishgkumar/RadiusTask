@@ -36,7 +36,7 @@ class PropertyFacilityRepoImp @Inject constructor(
 ) : PropertyFacilityRepo {
 
 
-    var userPreferences = mutableListOf<FacilityOptionCondition>()
+  private  var userPreferences = mutableListOf<FacilityOptionCondition>()
 
     override suspend fun getFacilityListForUI(): Flow<Resource<List<Facility>>> {
 
@@ -76,7 +76,7 @@ class PropertyFacilityRepoImp @Inject constructor(
         } catch (e: HttpException) {
             e.printStackTrace()
             emit(Resource.Error("Couldn't load data"))
-            null
+
         } catch (e: Exception) {
             e.printStackTrace()
             emit(Resource.Error("Couldn't load data"))

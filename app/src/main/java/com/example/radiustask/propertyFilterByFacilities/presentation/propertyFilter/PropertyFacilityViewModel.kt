@@ -6,13 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.radiustask.propertyFilterByFacilities.domain.repository.PropertyFacilityRepo
 import com.example.radiustask.propertyFilterByFacilities.presentation.adapter.FacilityOptionClickHandler
 import com.example.radiustask.propertyFilterByFacilities.presentation.adapter.model.FacilityOptionState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class PropertyFacilityViewModel @Inject constructor(private val repository: PropertyFacilityRepo) : ViewModel(),
     FacilityOptionClickHandler {
-
-
     init {
         getDataForUI()
         getDataFromServer()

@@ -6,10 +6,9 @@ import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-class FacilityEntity(
-    @PrimaryKey
-    val facilityId: Int?,
-    val name: String?,
-    val options: List<FacilityOptionEntity>?
+open class FacilityEntity(
+    @PrimaryKey var facilityId: Int?, var name: String?, var options: RealmList<FacilityOptionEntity>?
 
-) : RealmObject()
+) : RealmObject() {
+    constructor() : this(0, "", RealmList<FacilityOptionEntity>())
+}

@@ -1,18 +1,17 @@
 package com.example.radiustask.propertyFilterByFacilities.data.mapper
 
-import com.example.radiustask.propertyFilterByFacilities.data.local.model.FacilityEntity
-import com.example.radiustask.propertyFilterByFacilities.data.local.model.FacilityFilterConditionEntity
-import com.example.radiustask.propertyFilterByFacilities.data.local.model.FacilityListEntity
-import com.example.radiustask.propertyFilterByFacilities.data.local.model.FacilityOptionEntity
+import com.example.radiustask.propertyFilterByFacilities.data.local.model.*
 import com.example.radiustask.propertyFilterByFacilities.data.remote.dto.FacilityDTO
 import com.example.radiustask.propertyFilterByFacilities.data.remote.dto.FacilityFilterConditionDTO
 import com.example.radiustask.propertyFilterByFacilities.data.remote.dto.FacilityListDTO
 import com.example.radiustask.propertyFilterByFacilities.data.remote.dto.FacilityOptionDTO
+import io.realm.RealmList
 
 
 fun FacilityDTO.toFilterEntity(): FacilityEntity {
-    val optionListEntity = options?.map {
-        it.toFacilityOptionEntity()
+    val optionListEntity = RealmList<FacilityOptionEntity>()
+    options?.forEach {
+        optionListEntity.add(it.toFacilityOptionEntity())
     }
     return FacilityEntity(facilityId = facilityId, name = name, optionListEntity)
 }
@@ -29,10 +28,12 @@ fun FacilityFilterConditionDTO.toFacilityFilterConditionEntity(): FacilityFilter
 }
 
 
-fun FacilityListDTO.toFilterListEntity(): List<FacilityEntity> {
-    return facilities?.map {
-        it.toFilterEntity()
-    } ?: emptyList()
+fun FacilityListDTO.toFilterListEntity(): RealmList<FacilityEntity> {
+    val facilityEntityList = RealmList<FacilityEntity>()
+    facilities?.forEach {
+        facilityEntityList.add(it.toFilterEntity())
+    }
+    return facilityEntityList
 }
 
 
@@ -42,14 +43,18 @@ fun FacilityListDTO.toFilterListAndExclusionsListEntity(): FacilityListEntity {
     return FacilityListEntity(facilityEntiitylist, exclusions)
 }
 
-fun FacilityListDTO.toFilterConditionListEntity(): List<List<FacilityFilterConditionEntity>> {
+fun FacilityListDTO.toFilterConditionListEntity(): RealmList<FacilityFilterConditionEntityList> {
 
-    val exclusionsList = mutableListOf<List<FacilityFilterConditionEntity>>()
-    var conditionList = mutableListOf<FacilityFilterConditionEntity>()
+    val exclusionsList = RealmList<FacilityFilterConditionEntityList>()
+    var conditionList = FacilityFilterConditionEntityList()
     exclusions?.map {
-        conditionList = mutableListOf<FacilityFilterConditionEntity>()
+        conditionList = FacilityFilterConditionEntityList()
         it.map {
-            conditionList.add(FacilityFilterConditionEntity(it.facilityId, it.optionsId))
+            conditionList.facilityFilterConditionEntityList.add(
+                FacilityFilterConditionEntity(
+                    it.facilityId, it.optionsId
+                )
+            )
         }
         exclusionsList.add(conditionList)
     } ?: emptyList()

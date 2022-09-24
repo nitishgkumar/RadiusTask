@@ -19,7 +19,7 @@ class FilterOptionListAdapter : ListAdapter<FacilityOptionState, FilterOptionVie
         }
 
         override fun areContentsTheSame(oldItem: FacilityOptionState, newItem: FacilityOptionState): Boolean {
-            return oldItem.selectionState == newItem.selectionState
+            return oldItem.selectionStyle == newItem.selectionStyle
         }
     }
 

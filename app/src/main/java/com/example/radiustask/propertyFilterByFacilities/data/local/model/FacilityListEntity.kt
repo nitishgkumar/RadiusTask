@@ -7,8 +7,9 @@ import com.squareup.moshi.Json
 import io.realm.RealmList
 import io.realm.RealmObject
 
-class FacilityListEntity(
+open class FacilityListEntity(
 
-    val facilities: List<FacilityEntity>?,
-     val exclusions: List<List<FacilityFilterConditionEntity>>?
-) : RealmObject()
+    var facilities: RealmList<FacilityEntity>?, var exclusions: RealmList<FacilityFilterConditionEntityList>?
+) : RealmObject() {
+    constructor() : this(RealmList<FacilityEntity>(), RealmList<FacilityFilterConditionEntityList>())
+}

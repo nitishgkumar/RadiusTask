@@ -6,10 +6,9 @@ import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 
 @RealmClass(embedded = true)
-data class FacilityOptionEntity(
-    val name: String?,
-    val icon: String?,
-    @PrimaryKey
-    val id: Int?
+open class FacilityOptionEntity(
+    var name: String?, var icon: String?,  var id: Int?
 
-) : RealmObject()
+) : RealmObject() {
+    constructor() : this("", "", 0)
+}
