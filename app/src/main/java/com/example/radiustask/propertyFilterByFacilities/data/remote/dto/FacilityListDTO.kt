@@ -4,6 +4,6 @@ import com.squareup.moshi.Json
 
 data class FacilityListDTO(
     @field:Json(name = "facilities") val facilities: List<FacilityDTO>?,
-    @field:Json(name = "exclusions") val exclusions: List<FacilityFilterConditionDTO>?
+    @field:Json(name = "exclusions") val exclusions: List<List<FacilityFilterConditionDTO>>?
 )
 

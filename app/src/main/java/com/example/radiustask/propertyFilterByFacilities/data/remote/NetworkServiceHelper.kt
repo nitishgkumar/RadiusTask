@@ -9,7 +9,7 @@ interface NetworkServiceHelper {
 
     @GET(ApiEndPoint.FACILITIES_URL)
     suspend fun getList(
-    ): Flow<Resource<FacilityListDTO>>
+    ): Resource<FacilityListDTO>
 
 
 }
